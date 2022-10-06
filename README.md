@@ -45,4 +45,4 @@ curl -s --header "Teleportca: teleport2022" http://localhost:9999/ca_pin_hashes 
 run build.sh and services.sh
 
 ## How teleport-go-utils works
-![How teleport-go-utils works image](teleport-go-utils.png)
+![How teleport-go-utils works image](teleport-go-utils.jpg)
