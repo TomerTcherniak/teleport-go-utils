@@ -1,0 +1,15 @@
+[Unit]
+Description=Teleport SRV Utils Container
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=30
+ExecStartPre=-/usr/bin/docker stop teleport-go-utils
+ExecStartPre=-/usr/bin/docker rm teleport-go-utils
+
+ExecStart=/usr/bin/docker run -d --name=teleport-go-utils -p 9999:9999 -u 0:0  -e AUTH_SERVER="teleport.server.com" -e PORT=9999 -e CA_PIN_HASHES=wgf123egwrg423423efesrwwhb -e TTL=6 teleport-go-utils:latest
+
+
+[Install]
+WantedBy=multi-user.target
